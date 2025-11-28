@@ -1,10 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: root
+  name: root-service
+  namespace: sirius
 spec:
   selector:
-    app: root
+    app: root-app
   ports:
   - port: 80
     targetPort: 8080

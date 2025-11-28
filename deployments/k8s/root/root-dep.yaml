@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: root
+  name: root-app
   namespace: sirius
 spec:
   selector:
     matchLabels:
-      app: root
+      app: root-app
   template:
     metadata:
       labels:
-        app: root
+        app: root-app
     spec:
       containers:
-        - name: root-service
-          image: root-service:latest
+        - name: root-app
+          image: lendy1/root-app:latest
           imagePullPolicy: IfNotPresent
           resources:
             requests:
@@ -25,4 +25,4 @@ spec:
               cpu: "500m"
           envFrom:
             - configMapRef:
-                name: conf-root
+                name: root-conf

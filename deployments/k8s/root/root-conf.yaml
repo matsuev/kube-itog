@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: conf-root
+  name: root-conf
   namespace: sirius
 data:
-  APP_NAME: "root"
-  BIND_PORT: "8080"
+  ROOT_APP_NAME: "root"
+  ROOT_BIND_PORT: "8080"

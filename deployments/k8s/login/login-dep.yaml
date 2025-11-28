@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: login
+  name: login-app
   namespace: sirius
 spec:
   selector:
     matchLabels:
-      app: login
+      app: login-app
   template:
     metadata:
       labels:
-        app: login
+        app: login-app
     spec:
       containers:
-        - name: login-service
-          image: login-service:latest
+        - name: login-app
+          image: lendy1/login-app:latest
           imagePullPolicy: IfNotPresent
           resources:
             requests:
@@ -25,4 +25,4 @@ spec:
               cpu: "500m"
           envFrom:
             - configMapRef:
-                name: conf-login
+                name: login-conf
