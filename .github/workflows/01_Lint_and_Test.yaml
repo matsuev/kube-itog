@@ -3,12 +3,16 @@ on:
   workflow_dispatch: 
 jobs:
   test_golang:
-    runs-on: golang
+    runs-on: ubuntu-latest
     steps:
+
+      - name: Job start
+        run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
+
       - name: Install GoLang v1.24.9
         uses: actions/setup-go@v6
         with:
           go-version: "1.24.9"
 
-      - name: Check out repository code
-        uses: actions/checkout@v6
+      - name: Display Go version
+        run: go version
