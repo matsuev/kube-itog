@@ -23,7 +23,7 @@ jobs:
           push: true
           tags: |
             lendy1/api-service:latest
-            lendy1/api-service:v1
+            lendy1/api-service:v1.0.1
       
       - name: Build and push Docker image B
         uses: docker/build-push-action@v5
@@ -31,7 +31,9 @@ jobs:
           context: .
           file: ./cmd/info-service/Dockerfile
           push: true
-          tags: lendy1/info-service:latest
+          tags: |
+            lendy1/api-info:latest
+            lendy1/api-info:v1.0.1
 
       - name: Build and push Docker image C
         uses: docker/build-push-action@v5
@@ -39,7 +41,9 @@ jobs:
           context: .
           file: ./cmd/login-service/Dockerfile
           push: true
-          tags: lendy1/login-service:latest
+          tags: |
+            lendy1/api-login:latest
+            lendy1/api-login:v1.0.1
       
       - name: Build and push Docker image D
         uses: docker/build-push-action@v5
@@ -47,7 +51,9 @@ jobs:
           context: .
           file: ./cmd/root-service/Dockerfile
           push: true
-          tags: lendy1/root-service:latest
+          tags: |
+            lendy1/api-root:latest
+            lendy1/api-root:v1.0.1
 
       - name: Job status
         run: echo "This job's status is ${{ job.status }}."
